@@ -1,0 +1,30 @@
+{
+  "name": "create-eve-project",
+  "version": "0.0.1",
+  "description": "Everest cli to speed up project start-up and standardized frontend , backend architecture",
+  "bin": "./cli/src/cli.js",
+  "scripts": {
+    "build": "tsc --watch",
+    "start": "concurrently 'yarn build'  'nodemon --watch . --exec  npm i -g .'"
+  },
+  "author": "Nathan Kala , Ariel Kouadio",
+  "license": "ISC",
+  "dependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "cac": "^6.7.14",
+    "figlet": "^1.6.0",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^8.2.0",
+    "ncp": "^2.0.0",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "yargs": "^17.7.1"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.6",
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.16.3",
+    "concurrently": "^8.0.1",
+    "typescript": "^5.0.4"
+  }
+}
