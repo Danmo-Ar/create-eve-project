@@ -10,9 +10,10 @@ const projectBuilder = async (project) => {
     const { name, type, architecture, language, framework } = project;
     const currentDir = process.cwd();
     const outDir = name === '.' ? currentDir : name;
-    const templateDir = `../../../templates/${type}/${architecture}/${framework}/${language}/`;
+    const templateDir = `../../templates/${type}/${architecture}/${framework}/${language}/`;
+    const fullTemplateDir = (0, path_1.join)(__dirname, templateDir);
     try {
-        await ncp((0, path_1.join)(__dirname, templateDir), outDir);
+        await ncp(fullTemplateDir, outDir);
     }
     catch (err) {
         console.log(err);

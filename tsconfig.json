@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2017",
     "module": "CommonJS",
-    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
+    "lib": ["ES2022"],
     "sourceMap": false,
     "outDir": "./cli",
     "strict": true,
@@ -19,6 +19,6 @@
     "noFallthroughCasesInSwitch": true,
     "removeComments": true
   },
-  "include": ["src/*/*", "src/cli.ts", "src/utils.ts"],
+  // "include": ["src/*/*", "src/cli.ts"],
   "exclude": ["node_modules", "templates"]
 }

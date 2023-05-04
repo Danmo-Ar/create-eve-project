@@ -1,32 +1,44 @@
 #!/usr/bin/env node
-import fs from 'fs';
-import path from 'path';
-import cac from 'cac';
+// import fs from 'fs';
+// import path from 'path';
+// import cac from 'cac';
 import inquirer from 'inquirer';
 import figlet from 'figlet';
 import prompt from './prompt/prompt-en';
-import { version } from '../package.json';
+// import { version } from '../package.json';
 import { Project } from './interfaces/Project';
+import projectBuilder from './helpers/ProjectBuilder';
 
 // create cli
 
-const cli = cac('create-eve-app');
+// const cli = cac('create-eve-project');
 //inquierer 8 can be export with commonJs LASTEST VERSION support only ESM module
 // setup prompt
 const runPrompt = async () => {
-  const response: Project | null = null;
+  let projectMeta: Project | null = null;
   let projectType: string | null = null;
+  let languageRegEx = /node|python|java/;
   let oldprojectType: string | null = null;
   const prompts = Object.entries(prompt);
 
-  for (const [index, prompt] of prompts) {
-    const castedPrompt = !Array.isArray(prompt) ? prompt[projectType!] : prompt;
+  for (const [_, prompt] of prompts) {
+    const castedPrompt: any[] = !Array.isArray(prompt)
+      ? prompt[projectType!]
+      : prompt;
 
     const answers = await inquirer.prompt(castedPrompt);
     const { type, language } = answers;
-    console.log(answers);
-    projectType = type || language || projectType;
+
+    oldprojectType = type || oldprojectType;
+    projectType = language?.match(languageRegEx) ? language : oldprojectType;
+    projectMeta = { ...projectMeta!, ...answers };
   }
+
+  // Build Project Base on Template
+
+  projectBuilder(projectMeta!);
+
+  console.log(projectMeta!);
 };
 
 // create run function for cli
