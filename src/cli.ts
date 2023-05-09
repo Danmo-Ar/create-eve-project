@@ -8,7 +8,7 @@ import prompt from './prompt/prompt-en';
 // import { version } from '../package.json';
 import { Project } from './interfaces/Project';
 import projectBuilder from './helpers/ProjectBuilder';
-
+// TODO : add chalk package to displayed colored console text
 // create cli
 
 // const cli = cac('create-eve-project');

@@ -12,8 +12,14 @@ const projectBuilder = async (project: Project) => {
   const templateDir = `../../templates/${type}/${architecture}/${framework}/${language}/`;
   const fullTemplateDir = join(__dirname, templateDir);
 
+  // ** check if folder is empty
+
+  // ** get template packages json
+
+  // const packageJson = JSON.parse();
+
   try {
-    await ncp(fullTemplateDir, outDir);
+    await ncp(fullTemplateDir, outDir); // TODO : add ora package for spinner loading
   } catch (err) {
     console.log(err);
   }

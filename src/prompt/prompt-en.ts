@@ -4,6 +4,8 @@ export default {
       type: 'input',
       name: 'name',
       message: 'Enter Your Project Name 📂 : ',
+
+      // TODO : find a better way to this :  default: { name: 'Current directory if nothing is written', value: '.' },
       default: '.',
     },
     {
