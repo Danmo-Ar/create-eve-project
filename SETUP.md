@@ -1,6 +1,6 @@
 ## SETUP😎😎
 
-- create folder project : with gui system or with cli : `mkdir create-eve-app `
+- create folder project : with gui system or with cli : `mkdir create-eve-project `
 
   - inside created folder run : `npm init ` and fill in the prompt
 
