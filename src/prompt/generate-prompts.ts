@@ -32,5 +32,5 @@ export const generatePrompts = async () => {
     projectMeta = { ...projectMeta!, ...answers };
   }
 
-  return { projectMeta: projectMeta };
+  return { projectMeta };
 };

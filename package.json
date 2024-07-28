@@ -1,6 +1,6 @@
 {
   "name": "create-eve-project",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Everest cli to speed up project start-up and standardized frontend , backend architecture",
   "bin": "./cli/cli.js",
   "type": "module",
