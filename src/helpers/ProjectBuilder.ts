@@ -1,6 +1,6 @@
 'use strict';
 
-import { join, dirname, resolve } from 'path';
+import { join } from 'path';
 import util from 'util';
 import { Project } from '../interfaces/Project';
 const ncp = util.promisify(require('ncp').ncp);

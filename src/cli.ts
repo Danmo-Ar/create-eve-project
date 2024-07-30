@@ -23,6 +23,7 @@ const runPrompt = async () => {
 
   for (const [_, prompt] of prompts) {
     const castedPrompt: any[] = !Array.isArray(prompt)
+        //@ts-ignore
       ? prompt[projectType!]
       : prompt;
 
