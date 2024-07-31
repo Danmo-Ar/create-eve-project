@@ -102,7 +102,7 @@ const promptEn: Record<number | string, Question | Record<string, Question>> = {
 };
 
 interface DyanamicPrompt {
-  choices: any[];
+  choices: Array<string | Record<string , string|boolean>>;
   defaultChoice?: string;
 }
 

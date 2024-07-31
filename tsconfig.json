@@ -10,7 +10,7 @@
     "strict": true,
     "outDir": "./cli",
     "rootDir": "./src",
-
+ "resolveJsonModule": true,
     "removeComments": true
   },
   "tsc-alias": {

@@ -1,4 +1,4 @@
-import inquirer from 'inquirer';
+import inquirer, { Question } from 'inquirer';
 
 import { Project } from '../interfaces/Project.js';
 import prompt from './prompt-en.js';
@@ -14,13 +14,13 @@ const initialPrompt = {
 export const generatePrompts = async () => {
   let projectMeta: Project = initialPrompt;
   let projectType: string = '';
-  let languageRegEx = /node|python|java/;
+  const languageRegEx = /node|python|java/;
   let oldprojectType: string | null = null;
   const prompts = Object.entries(prompt);
 
-  for (const [_, prompt] of prompts) {
-    const castedPrompt: any[] = !Array.isArray(prompt)
-      ? // @ts-ignore
+  for (const [, prompt] of prompts) {
+    const castedPrompt: Question[] = !Array.isArray(prompt)
+      ?// @ts-expect-error bad type
         prompt[projectType!]
       : prompt;
 
