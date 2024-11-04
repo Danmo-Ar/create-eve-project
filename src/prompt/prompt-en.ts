@@ -32,7 +32,7 @@ const promptEn: Record<number | string, Question | Record<string, Question>> = {
 			name: "type",
 			message: "What type of project do you want to start 🏗️ : ",
 
-			choices: [{ name: "Frontend", disabled: true }, "Backend"],
+			choices: [{ name: "Frontend" }, "Backend"],
 		},
 	],
 	2: {
@@ -40,7 +40,7 @@ const promptEn: Record<number | string, Question | Record<string, Question>> = {
 			DynamicPromptArchitecture({
 				choices: [
 					{ name: "Application", value: APPLICATION },
-					{ name: "Website", value: WEBSITE },
+					{ name: "Website", value: WEBSITE, disabled: true },
 				],
 			}),
 		],
@@ -57,7 +57,8 @@ const promptEn: Record<number | string, Question | Record<string, Question>> = {
 	3: {
 		Frontend: [
 			DynamicPromptLanguage({
-				choices: [TS, JS],
+				choices: [TS, { name: JS, disabled: true }],
+				defaultChoice: TS,
 			}),
 		],
 		Backend: [
@@ -73,8 +74,12 @@ const promptEn: Record<number | string, Question | Record<string, Question>> = {
 	4: {
 		Frontend: [
 			DynamicPromptFrameWork({
-				choices: [ANGULAR, REACT, NEXT],
-				defaultChoice: REACT,
+				choices: [
+					NEXT,
+					{ name: ANGULAR, disabled: true },
+					{ name: REACT, disabled: true },
+				],
+				defaultChoice: NEXT,
 			}),
 		],
 		node: [

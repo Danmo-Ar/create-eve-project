@@ -5,6 +5,7 @@ import { figletColor } from "./helpers/lib/chalk-utility.js";
 
 import { Command } from "commander";
 import projectBuilder from "./helpers/builder.js";
+import { getVersion, pnpmInstall } from "./helpers/index.js";
 import { generatePrompts } from "./prompt/generate-prompts.js";
 const program = new Command();
 
@@ -12,11 +13,13 @@ const program = new Command();
 program
 	.name("eve")
 	.usage("<command> [options]")
-	.version("1.0.0") // TODO : retrieve the version from the packages JSON file
+	.version(await getVersion()) // TODO : retrieve the version from the packages JSON file
 	.description(
 		"A CLI to generate a boilerplate project with the best practices",
 	)
 	.action(() => {
+		// chec pnpm and install it if not found
+		pnpmInstall();
 		// Display the help message if no command is provided
 
 		program.help();
@@ -44,6 +47,7 @@ program
 		.description("Initialize a new project")
 		.action(async (args) => {
 			const { projectMeta } = await generatePrompts();
+
 			await projectBuilder(projectMeta);
 		});
 

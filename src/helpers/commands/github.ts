@@ -6,13 +6,15 @@ import type { Project } from "../../interfaces/Project.js";
 
 const execAsync = promisify(exec);
 
-const { NESTJS } = FRAMEWORK;
-const { NODE } = LANGUAGE;
+const { NESTJS, NEXT } = FRAMEWORK;
+const { NODE, TS } = LANGUAGE;
 
-const templateGithub = new Map().set(
-	`${NODE}-${NESTJS}`,
-	"https://github.com/Akuma225/nestjs-prisma-mono-skeleton.git",
-);
+const templateGithub = new Map()
+	.set(
+		`${NODE}-${NESTJS}`,
+		"https://github.com/Akuma225/nestjs-prisma-mono-skeleton.git",
+	)
+	.set(`${TS}-${NEXT}`, "https://github.com/Danmo-Ar/nextjs-architecture.git");
 
 const spinner = ora("Clonning the project");
 

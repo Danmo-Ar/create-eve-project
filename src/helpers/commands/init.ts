@@ -11,7 +11,6 @@ import {
 export const init = async (projectName: string) => {
 	// Get the absolute path of the current working directory
 	const absolutePath = getAbsolutePath(projectName);
-	console.log({ absolutePath });
 	const { shouldInstall } = await inquirer.prompt([
 		{
 			type: "confirm",
@@ -38,9 +37,10 @@ const installDependencies = (path: string) => {
 	const spinner = ora("Installing dependencies...");
 	spinner.start();
 
-	exec("npm install", { cwd: path }, (error, stdout, stderr) => {
+	exec("yarn install", { cwd: path }, (error, stdout, stderr) => {
 		if (error) {
 			spinner.fail("Failed to install dependencies");
+			console.error(`error: ${error.message}`);
 			return;
 		}
 		console.log(`stdout: ${stdout}`);
