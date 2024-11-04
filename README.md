@@ -1,4 +1,4 @@
-# Eve CLI : Node Cli Tool
+# Everest Dev Cli
 
 This CLI tool should help us start new projects faster, with prebuilt and preconfigured architecture bundled with some extra reusable components (UI components, helper functions, etc.).
 
@@ -35,7 +35,7 @@ or
 prompt will ask for project name, language, and framework to use.
 we actually work on shortcut with option to skip prompt and directly initialize project with default values.
 
-> ### Features of Our Node.js CLI Tool : In Progress
+> ### More Features : In Progress
 
 > - **Init Function**:Initialize a new project based on boilerplate (Frontend, Backend) depending on the chosen language and framework.
 
@@ -44,7 +44,3 @@ we actually work on shortcut with option to skip prompt and directly initialize 
 > - **Big Components UI**: Predefined UI components for frontend development to speed up the project process. from atom components to comlplex organisms.
 
 > - _We'll add more feature as we going_
-
-```
-
-```
