@@ -1,34 +1,44 @@
 {
-  "name": "create-eve-project",
-  "version": "0.0.5",
-  "description": "Everest cli to speed up project start-up and standardized frontend , backend architecture",
-  "bin": "./cli/cli.js",
-  "type": "module",
-  "scripts": {
-    "build": "tsc --watch && tsc-alias",
-    "start": "concurrently 'yarn build'  'nodemon --watch . --exec  npm i -g .'"
-  },
-  "author": "Nathan Kala , Ariel Kouadio",
-  "license": "ISC",
-  "dependencies": {
-    "@types/fs-extra": "^11.0.1",
-    "cac": "^6.7.14",
-    "chalk": "^5.3.0",
-    "figlet": "^1.6.0",
-    "fs-extra": "^11.1.1",
-    "inquirer": "^8.2.0",
-    "ncp": "^2.0.0",
-    "nodemon": "^2.0.22",
-    "ora": "^8.0.1",
-    "ts-node": "^10.9.1",
-    "tsc-alias": "^1.8.10",
-    "yargs": "^17.7.1"
-  },
-  "devDependencies": {
-    "@types/figlet": "^1.5.6",
-    "@types/inquirer": "^9.0.3",
-    "@types/node": "^18.16.3",
-    "concurrently": "^8.0.1",
-    "typescript": "^5.0.4"
-  }
+	"name": "@eve-tools/cli",
+	"version": "0.2.6",
+	"description": "Everest cli to speed up project start-up and standardized frontend , backend architecture",
+	"bin": {
+		"eve": "./cli/cli.js"
+	},
+	"type": "module",
+	"scripts": {
+		"build": "tsc --watch && tsc-alias",
+		"start": "concurrently 'yarn build'  'nodemon --watch . --exec  npm i -g .'"
+	},
+	"keywords": ["cli", "everest", "boilerplate", "eve", "tools", "nextjs"],
+	"author": "Nathan Kala , Ariel Kouadio",
+	"license": "ISC",
+	"dependencies": {
+		"@types/fs-extra": "^11.0.1",
+		"chalk": "^5.3.0",
+		"commander": "^12.1.0",
+		"figlet": "^1.6.0",
+		"fs-extra": "^11.1.1",
+		"inquirer": "^8.2.0",
+		"nodemon": "^2.0.22",
+		"ora": "^8.0.1",
+		"ts-node": "^10.9.1",
+		"tsc-alias": "^1.8.10",
+		"validate-npm-package-name": "^5.0.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": ["cli"],
+	"devDependencies": {
+		"@eslint/js": "^9.8.0",
+		"@types/figlet": "^1.5.6",
+		"@types/inquirer": "^9.0.3",
+		"@types/node": "^18.16.3",
+		"concurrently": "^8.0.1",
+		"eslint": "9.x",
+		"globals": "^15.8.0",
+		"typescript": "^5.0.4",
+		"typescript-eslint": "^7.17.0"
+	}
 }

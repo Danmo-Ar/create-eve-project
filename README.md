@@ -1,33 +1,46 @@
-# Create Eve Project : Node Cli Tool
+# Everest Dev Cli
 
 This CLI tool should help us start new projects faster, with prebuilt and preconfigured architecture bundled with some extra reusable components (UI components, helper functions, etc.).
 
-_Deploy on npm sooner_
+## Installation guide
 
-### Starting the Project
+### Install the CLI tool globally
 
-1. **Starting :**
-   Open your terminal and execute the following command:
+```bash
+npm i @eve-tools/cli
+```
 
-   ```bash
-   # Start in watch mode
-   npm start
+### Verify the installation
 
-   # Build
-   npm build
-   ```
+```bash
+eve
+```
 
-2. **Run `create-eve-project` Command:**
-   Open your terminal and execute the following command:
+this command directly output the cli help to have glimpse of commands and options.
 
-   ```bash
-   create-eve-project
-   ```
+### Initialize the project by following the prompt
 
-> ### Features of Our Node.js CLI Tool : In Progress
 >
-> - **Start Project**: Initialize a new project based on boilerplate templates (Frontend, Backend) depending on the chosen language and framework.
-> - **Init Function**: Generate a JSON configuration file and install packages if the user opts in.
+
+```bash
+eve init
+```
+
+or
+
+```bash
+    npx @eve-tools/cli init
+```
+
+prompt will ask for project name, language, and framework to use.
+we actually work on shortcut with option to skip prompt and directly initialize project with default values.
+
+> ### More Features : In Progress
+
+> - **Init Function**:Initialize a new project based on boilerplate (Frontend, Backend) depending on the chosen language and framework.
+
 > - **Add Command**: Based on the generated JSON configuration, add UI components, workflows, or reusable functions to the current project.
-> - **Big Components UI**: Predefined UI components for frontend development to speed up the project process.
+
+> - **Big Components UI**: Predefined UI components for frontend development to speed up the project process. from atom components to comlplex organisms.
+
 > - _We'll add more feature as we going_
