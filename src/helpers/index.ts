@@ -1,4 +1,6 @@
 import { writeFileSync } from "node:fs";
+import { readFile } from "node:fs/promises";
+import path, { normalize } from "node:path";
 import ora from "ora";
 
 export const tryCatchWrapper = async (fn: () => Promise<void>) => {
@@ -18,10 +20,16 @@ export const CheckPackageJson = async (cwd: string) => {
 
 	try {
 		spinner.start();
-		absolutePkgJsonPath = `${cwd}/package.json`;
-		console.log(absolutePkgJsonPath);
-		pkg = (await import(absolutePkgJsonPath, { with: { type: "json" } }))
-			.default;
+		absolutePkgJsonPath = path.resolve(cwd, "package.json");
+
+		const pkgData = await readFile(absolutePkgJsonPath, "utf-8");
+		if (!pkgData) {
+			spinner.fail("package.json not found.");
+			return;
+		}
+
+		pkg = JSON.parse(pkgData);
+
 		spinner.text = "Checking Done.";
 		spinner.succeed();
 	} catch (err) {
@@ -50,7 +58,7 @@ export const dirName = (projectName: string | undefined) => {
 };
 
 export const getAbsolutePath = (projectName: string) => {
-	return (
-		projectName === "." ? process.cwd() : `${process.cwd()}/${projectName}`
-	).replace(/\\/g, "/");
+	return normalize(
+		projectName === "." ? process.cwd() : `${process.cwd()}/${projectName}`,
+	);
 };
