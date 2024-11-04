@@ -1,35 +1,50 @@
-import inquirer from 'inquirer';
-import { spawn } from 'node:child_process';
-import path from 'node:path';
-import ora from 'ora';
-import { CheckPackageJson, dirName, updatePackageJson } from '../index.js';
+import inquirer from "inquirer";
+import { exec } from "node:child_process";
+import ora from "ora";
+import {
+	CheckPackageJson,
+	dirName,
+	getAbsolutePath,
+	updatePackageJson,
+} from "../index.js";
 
-export const init = async (cwd: string) => {
-  const absolutePath = path.resolve(cwd);
-  const { shouldInstall } = await inquirer.prompt([
-    { type: 'confirm', name: 'shouldInstall', message: 'Do you want to install dependencies' },
-  ]);
+export const init = async (projectName: string) => {
+	// Get the absolute path of the current working directory
+	const absolutePath = getAbsolutePath(projectName);
+	console.log({ absolutePath });
+	const { shouldInstall } = await inquirer.prompt([
+		{
+			type: "confirm",
+			name: "shouldInstall",
+			message: "Do you want to install dependencies ?",
+		},
+	]); // Ask the user if he wants to install the dependencies
 
-  if (!shouldInstall) return;
+	if (!shouldInstall) return; // If the user doesn't want to install the dependencies, return
 
-  const { pkg, absolutePkgJsonPath } = await CheckPackageJson(cwd);
-  await updatePackageJson({ pkg, absolutePkgJsonPath, projectName: dirName(cwd) });
+	const { pkg, absolutePkgJsonPath } = await CheckPackageJson(absolutePath); // Check the package.json file
+	await updatePackageJson({
+		// Update the package.json file
+		pkg,
+		absolutePkgJsonPath,
+		projectName: dirName(projectName),
+	});
 
-  installDependencies(absolutePath);
+	installDependencies(absolutePath); // Install the dependencies
 };
 
 const installDependencies = (path: string) => {
-  const spinner = ora('Installing dependencies...');
-  spinner.start();
-  const child = spawn('npm', ['install'], { cwd: path });
+	// TODO: Find the package manager used in the project
+	const spinner = ora("Installing dependencies...");
+	spinner.start();
 
-  child.on('exit', (code) => {
-    if (code === 0) {
-      spinner.succeed('Dependencies installed successfully');
-    } else {
-      spinner.fail('Failed to install dependencies');
-    }
-  });
-
-
-}
+	exec("npm install", { cwd: path }, (error, stdout, stderr) => {
+		if (error) {
+			spinner.fail("Failed to install dependencies");
+			return;
+		}
+		console.log(`stdout: ${stdout}`);
+		console.error(`stderr: ${stderr}`);
+		spinner.succeed("Dependencies installed successfully");
+	});
+};

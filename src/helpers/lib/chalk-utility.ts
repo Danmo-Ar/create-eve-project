@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import chalk from "chalk";
 
 export const error = chalk.bold.red;
-export const figletColor = chalk.bold.blue;
+export const figletColor = chalk.bold.cyanBright;

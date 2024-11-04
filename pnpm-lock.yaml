@@ -11,12 +11,12 @@ importers:
       '@types/fs-extra':
         specifier: ^11.0.1
         version: 11.0.4
-      cac:
-        specifier: ^6.7.14
-        version: 6.7.14
       chalk:
         specifier: ^5.3.0
         version: 5.3.0
+      commander:
+        specifier: ^12.1.0
+        version: 12.1.0
       figlet:
         specifier: ^1.6.0
         version: 1.7.0
@@ -26,9 +26,6 @@ importers:
       inquirer:
         specifier: ^8.2.0
         version: 8.2.6
-      ncp:
-        specifier: ^2.0.0
-        version: 2.0.0
       nodemon:
         specifier: ^2.0.22
         version: 2.0.22
@@ -44,9 +41,6 @@ importers:
       validate-npm-package-name:
         specifier: ^5.0.1
         version: 5.0.1
-      yargs:
-        specifier: ^17.7.1
-        version: 17.7.2
     devDependencies:
       '@eslint/js':
         specifier: ^9.8.0
@@ -303,10 +297,6 @@ packages:
   buffer@5.7.1:
     resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==}
 
-  cac@6.7.14:
-    resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
-    engines: {node: '>=8'}
-
   callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
@@ -356,6 +346,10 @@ packages:
 
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+
+  commander@12.1.0:
+    resolution: {integrity: sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==}
+    engines: {node: '>=18'}
 
   commander@9.5.0:
     resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
@@ -719,10 +713,6 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
-
-  ncp@2.0.0:
-    resolution: {integrity: sha512-zIdGUrPRFTUELUvr3Gmc7KZ2Sw/h1PiVM0Af/oHB6zgnV1ikqSfRk+TOufi79aHYCW3NiOXmr1BP5nWbzojLaA==}
-    hasBin: true
 
   nodemon@2.0.22:
     resolution: {integrity: sha512-B8YqaKMmyuCO7BowF1Z1/mkPqLk6cs/l63Ojtd6otKjMx47Dq1utxfRxcavH1I7VSaL8n5BUaoutadnsX3AAVQ==}
@@ -1313,8 +1303,6 @@ snapshots:
       base64-js: 1.5.1
       ieee754: 1.2.1
 
-  cac@6.7.14: {}
-
   callsites@3.1.0: {}
 
   chalk@4.1.2:
@@ -1363,6 +1351,8 @@ snapshots:
       color-name: 1.1.4
 
   color-name@1.1.4: {}
+
+  commander@12.1.0: {}
 
   commander@9.5.0: {}
 
@@ -1718,8 +1708,6 @@ snapshots:
   mylas@2.1.13: {}
 
   natural-compare@1.4.0: {}
-
-  ncp@2.0.0: {}
 
   nodemon@2.0.22:
     dependencies:
