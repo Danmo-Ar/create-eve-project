@@ -1,6 +1,6 @@
 {
 	"name": "@eve-tools/cli",
-	"version": "0.2.6",
+	"version": "0.2.8",
 	"description": "Everest cli to speed up project start-up and standardized frontend , backend architecture",
 	"bin": {
 		"eve": "./cli/cli.js"
@@ -11,14 +11,15 @@
 		"start": "concurrently 'yarn build'  'nodemon --watch . --exec  npm i -g .'"
 	},
 	"keywords": ["cli", "everest", "boilerplate", "eve", "tools", "nextjs"],
-	"author": "Nathan Kala , Ariel Kouadio",
+	"author": "Everest Team",
 	"license": "ISC",
 	"dependencies": {
 		"@types/fs-extra": "^11.0.1",
+		"boxen": "^8.0.1",
 		"chalk": "^5.3.0",
+		"cli-boxes": "^4.0.1",
 		"commander": "^12.1.0",
 		"figlet": "^1.6.0",
-		"fs-extra": "^11.1.1",
 		"inquirer": "^8.2.0",
 		"nodemon": "^2.0.22",
 		"ora": "^8.0.1",

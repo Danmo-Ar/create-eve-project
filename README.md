@@ -1,4 +1,4 @@
-# Everest Dev Cli
+# Everest Dev CLI
 
 This CLI tool should help us start new projects faster, with prebuilt and preconfigured architecture bundled with some extra reusable components (UI components, helper functions, etc.).
 

@@ -1,4 +1,4 @@
-import inquirer, { Question } from "inquirer";
+import inquirer from "inquirer";
 
 import { Project } from "../interfaces/Project.js";
 import prompt from "./prompt-en.js";
@@ -12,24 +12,23 @@ const initialPrompt = {
 };
 
 export const generatePrompts = async () => {
-	let projectMeta: Project = initialPrompt;
-	let projectType: string = "";
-	const languageRegEx = /node|python|java/;
-	let oldprojectType: string | null = null;
-	const prompts = Object.entries(prompt);
+	const projectMeta: Project = { ...initialPrompt };
+	let projectType = "";
+	const languageMapToProjectType = new Set(["node", "python", "java"]); // In the prompts set the project type switch to (Frontend , Backend)
 
-	for (const [, prompt] of prompts) {
-		const castedPrompt: Question[] = !Array.isArray(prompt)
-			? // @ts-expect-error bad type
-				prompt[projectType]
-			: prompt;
+	for (const [, questionSet] of Object.entries(prompt)) {
+		const questions = Array.isArray(questionSet)
+			? questionSet
+			: (questionSet as never)[projectType];
 
-		const answers = await inquirer.prompt(castedPrompt);
+		const answers = await inquirer.prompt(questions);
 		const { type, language } = answers;
 
-		oldprojectType = type || oldprojectType;
-		projectType = language?.match(languageRegEx) ? language : oldprojectType;
-		projectMeta = { ...projectMeta!, ...answers };
+		projectType = languageMapToProjectType.has(language)
+			? language
+			: projectType || type;
+
+		Object.assign(projectMeta, answers);
 	}
 
 	return { projectMeta };
