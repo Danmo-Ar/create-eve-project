@@ -30,11 +30,11 @@ export const PROJECT_SCRIPT: Record<
 	{ start: string; build: string }
 > = {
 	next: {
-		start: "yarn dev",
-		build: "yarn build",
+		start: "npm dev",
+		build: "npm build",
 	},
 	nestjs: {
-		start: "yarn start:dev",
-		build: "yarn build",
+		start: "npm start:dev",
+		build: "npm build",
 	},
 };

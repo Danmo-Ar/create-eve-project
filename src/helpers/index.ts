@@ -66,13 +66,19 @@ export const getAbsolutePath = (projectName: string) => {
 	);
 };
 
-// export const pnpmInstall = () => {
+// export const pnpmInstall = async () => {
+// 	const os = type() as "Windows_NT" | "Linux" | "Darwin";
 // 	// check if pnpm is installed
+
 // 	exec("pnpm --version", (error) => {
 // 		if (error) {
-// 			console.error(
-// 				"pnpm is not installed, it will be installed automatically by the cli.",
-// 			);
+// 			if (os !== "Windows_NT") {
+// 				exec(
+// 					"curl -fsSL https://get.pnpm.io/install.sh | sh -",
+// 					(error, stdout, stderr) => {},
+// 				);
+// 				return;
+// 			}
 // 			exec("npm install -g pnpm", (error) => {
 // 				if (error) {
 // 					console.error("Failed to install pnpm, please install it manually.");
@@ -102,4 +108,10 @@ export const printBoxText = (text: string, options?: Options) => {
 			...options,
 		}),
 	);
+};
+
+export const printObj = (obj: Record<string, any>) => {
+	for (const [key, value] of Object.entries(obj)) {
+		console.log(`${key}: ${value}`);
+	}
 };

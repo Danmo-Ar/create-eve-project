@@ -44,7 +44,7 @@ const installDependencies = (
 	const spinner = ora("Installing dependencies...");
 	spinner.start();
 
-	exec("yarn install", { cwd: path }, (error, stdout, stderr) => {
+	exec("npm install", { cwd: path }, (error, stdout, stderr) => {
 		if (error) {
 			spinner.fail("Failed to install dependencies");
 			console.error(`error: ${stderr}`);

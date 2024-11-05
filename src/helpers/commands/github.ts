@@ -4,7 +4,7 @@ import ora from "ora";
 import { FRAMEWORK, LANGUAGE } from "../../constants.js";
 import type { Project } from "../../interfaces/Project.js";
 
-const execAsync = promisify(exec);
+export const execAsync = promisify(exec);
 
 const { NESTJS, NEXT } = FRAMEWORK;
 const { NODE, TS } = LANGUAGE;
