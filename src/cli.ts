@@ -5,7 +5,7 @@ import { figletColor } from "./helpers/lib/chalk-utility.js";
 
 import { Command } from "commander";
 import projectBuilder from "./helpers/builder.js";
-import { getVersion, pnpmInstall } from "./helpers/index.js";
+import { getVersion } from "./helpers/index.js";
 import { generatePrompts } from "./prompt/generate-prompts.js";
 const program = new Command();
 // version
@@ -20,7 +20,6 @@ program
 		"A CLI to generate a boilerplate project with the best practices",
 	)
 	.action(() => {
-		pnpmInstall();
 		program.outputHelp();
 	});
 
